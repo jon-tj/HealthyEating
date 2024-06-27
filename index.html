@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Healthy Eating</title>
+</head>
+<body>
+    <main>
+        <section class="bmr-calc embedded">
+            <header>
+                Calculate your daily energy needs
+            </header>
+            <main>
+                <form action="">
+                    <section class="carousel">
+                        <div class="carousel-container" id="bmr-calc">
+                            <aside>
+                                <label for="age">Age</label>
+                                <input type="number" name="age" value="22">
+                                <div class="button next-slide unselectable">Next 👉</div>
+                            </aside>
+    
+                            <aside>
+                                <label for="gender">Gender</label>
+                                <select name="gender">
+                                    <option value="none">Prefer not to say</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                  </select>
+                                  <div class="button next-slide unselectable">Next 👉</div>
+                            </aside>
+    
+                            <aside>
+                                <label for="height">Height</label>
+                                <!--Should be updated when gender is selected-->
+                                <input type="number" name="height" value="180">
+                                <div class="button next-slide unselectable">Next 👉</div>
+                            </aside>
+                            
+                            <aside>
+                                <label for="weight">Weight</label>
+                                <!--Should be updated when gender/weight is selected-->
+                                <input type="number" name="weight" value="60">
+                                <div class="button next-slide unselectable">Next 👉</div>
+                            </aside>
+                            
+                            <aside>
+                                <label for="activityCode">Activity level</label>
+                                <select name="activityCode">
+                                    <option value="0">Less than once a week</option>
+                                    <option value="1">1-3 times per week</option>
+                                    <option value="2">4-5 times per week</option>
+                                    <option value="3">Daily exercise or equivalent</option>
+                                    <option value="4">Intense exercise daily</option>
+                                  </select>
+                                  <div class="button reset unselectable">Do again</div>
+                            </aside>
+                        </div>
+                    </section>
+                </form>
+                <section style="text-align: center; margin-top: 2em;">
+                    <p>Your estimated daily energy expenditure:</p>
+                    <section style="margin-top: -1em;">
+                        <h2 id="bmr-result" style="display: inline-block;">2000</h2>
+                        <aside class="unit-switch unselectable" name="bmr">
+                            <option value="kcal">kcal</option>
+                            <option value="kj">kJ</option>
+                            <div class="thumb"></div>
+                        </aside>
+                    </section>
+                </section>
+            </main>
+        </section>
+    </main>
+</body>
+<script src="carousel.js"></script>
+<script src="unit-switch.js"></script>
+<script src="bmr-calc.js"></script>
+</html>
