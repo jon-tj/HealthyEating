@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
+    <title>Meal planner</title>
+</head>
+<body>
+    <main>
+        <h1>My meal plan</h1>
+        
+        <section class="embedded">
+            <header>
+                Summary
+            </header>
+            <main>
+                <canvas id="composition-graph" width="380"></canvas>
+                <aside class="facts">
+                    <h3>2100 kcal/day</h3>
+                </aside>
+            </main>
+        </section>
+        
+        <section class="embedded">
+            <header>
+                Breakdown
+            </header>
+            <main>
+                <canvas></canvas>
+            </main>
+        </section>
+    </main>
+</body>
+<script src="scripts/unit-switch.js"></script>
+<script src="scripts/composition-graph.js"></script>
+</html>
