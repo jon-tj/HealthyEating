@@ -1,6 +1,11 @@
 from flask import Flask, render_template, request, redirect, url_for, g, make_response
 
 import json
+import base64
+from health_py.query_external_recipes import analyze
+from health_py.db_connection import db_connection
+
+conn = db_connection("C:/Users/Jon/Documents/GitHub/HealthyEating/health_py/data/")
 
 app = Flask(__name__)
 app.config['JSON_AS_ASCII'] = False
@@ -15,16 +20,14 @@ def ROUTE_index():
 
 #region API endpoints
 
-@app.route("/api/contents",)
-def API_get_dir_contents():
-    path = request.args.get('path')
-    
-    if os.path.isdir(path):
-        return json.dumps(get_dir_contents(path))
-    elif os.path.isfile(path):
-        return json.dumps(get_file_contents(path))
-    else:
-        return make_response(json.dumps({'error':'not found'}), 404)
+@app.route("/api/v1/analyze/<url>",)
+def API_get_dir_contents(url):
+    url = base64.b64decode(url)
+    print(f"Analyzing {url}")
+    recipe = analyze(url, conn)
+    if recipe: # How to test for errors?<
+        return make_response(json.dumps(recipe), 200)
+    return make_response('Recipe not found', 404)
 
 #endregion
 
